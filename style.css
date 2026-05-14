@@ -61,4 +61,5 @@ body {
   height: 100%;
   padding: 15%; /* Padding em % para as imagens escalarem bem */
   position: absolute;
-  border-radius: 5px;
+  border-radius: 5px
+}
