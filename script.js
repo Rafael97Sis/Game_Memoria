@@ -3,6 +3,7 @@ const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let matchedPairs = 0; // Contador de pares encontrados
 
 function flipCard() {
   if (lockBoard) return;
@@ -28,6 +29,19 @@ function checkForMatch() {
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+  
+  matchedPairs++; // Incrementa um par encontrado
+  
+  // Verifica se ganhou o jogo
+  // O total de pares é a metade do número de cartas (cards.length / 2)
+  if (matchedPairs === cards.length / 2) {
+    setTimeout(() => {
+      alert("Parabéns! Você ganhou!");
+      // Opcional: recarregar a página para reiniciar o jogo
+      // location.reload(); 
+    }, 500);
+  }
+
   resetBoard();
 }
 
